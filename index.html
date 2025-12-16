@@ -3,155 +3,123 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- ---------- Google Fonts ---------- -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ---------- GLOBAL ---------- */
     body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
-                   'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-                   'Open Sans', 'Helvetica Neue', sans-serif;
-      background: #eef3f8;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: transparent;   /* 🔥 IMPORTANT */
       margin: 0;
-      padding: 40px;
+      padding: 0;                /* 🔥 IMPORTANT */
     }
 
-    /* ---------- HEADINGS ---------- */
-    h1, h2, h3 {
+    h2 {
       font-family: 'Poppins', system-ui, sans-serif;
       letter-spacing: -0.02em;
-    }
-
-    /* ---------- FORM CARD ---------- */
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      max-width: 900px;
-      margin: 0 auto 30px;
+      margin-top: 0;
     }
 
     /* ---------- BUTTON ---------- */
     .btn {
-      font-family: 'Inter', system-ui, sans-serif;
       background: #0b8ec2;
       color: #fff;
       border: none;
       padding: 14px 28px;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       border-radius: 999px;
       cursor: pointer;
-      box-shadow: 0 6px 18px rgba(11,142,194,0.35);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(11,142,194,0.4);
     }
 
     /* ---------- ANALYSIS BLOCK ---------- */
     .analysis-card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      max-width: 900px;
-      margin: 0 auto;
-      border-left: 6px solid #4caf50;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      border-left: 4px solid #4caf50;
       display: none;
-      animation: fadeIn 0.5s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .analysis-header {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 10px;
+      gap: 12px;
+      margin-bottom: 8px;
     }
 
     .badge {
-      font-family: 'Inter', system-ui, sans-serif;
       background: #4caf50;
       color: #fff;
-      font-size: 12px;
-      padding: 6px 12px;
+      font-size: 11px;
+      padding: 4px 10px;
       border-radius: 999px;
       font-weight: 600;
     }
 
     .subtitle {
       color: #666;
-      margin-bottom: 25px;
-      font-size: 15px;
+      margin-bottom: 20px;
+      font-size: 14px;
     }
 
     /* ---------- STATS ---------- */
     .stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
     }
 
     .stat-box {
-      border: 2px solid #e6c9f5;
-      border-radius: 16px;
-      padding: 22px;
+      border: 1.5px solid #e6c9f5;
+      border-radius: 14px;
+      padding: 18px;
       text-align: center;
     }
 
     .stat-value {
       font-family: 'Poppins', system-ui, sans-serif;
-      font-size: 34px;
+      font-size: 30px;
       font-weight: 700;
-      margin-bottom: 4px;
-      letter-spacing: -0.03em;
+      margin-bottom: 2px;
     }
 
     .stat-label {
-      font-family: 'Inter', system-ui, sans-serif;
-      letter-spacing: 1px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      margin-bottom: 10px;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
     }
 
     .stat-range {
       color: #777;
-      font-size: 14px;
-      margin-bottom: 10px;
+      font-size: 13px;
+      margin-bottom: 6px;
     }
 
     .pill {
       display: inline-block;
-      padding: 6px 14px;
+      padding: 4px 12px;
       border-radius: 999px;
       background: #f1f1f1;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
     }
   </style>
 </head>
 <body>
 
-  <!-- ---------- INPUT FORM ---------- -->
-  <div class="card">
+  <!-- Trigger -->
+  <div style="padding:16px;">
     <button class="btn" onclick="generatePrediction()">
       Generate Prediction
     </button>
   </div>
 
-  <!-- ---------- POPULATION COHORT ANALYSIS ---------- -->
+  <!-- Analysis -->
   <div class="analysis-card" id="analysisBlock">
     <div class="analysis-header">
       <h2>Population Cohort Analysis</h2>
@@ -186,21 +154,13 @@
     </div>
   </div>
 
-  <!-- ---------- JS ---------- -->
   <script>
     function generatePrediction() {
       const block = document.getElementById("analysisBlock");
-
-      block.style.display = "none";
-
-      // Simulated backend delay
-      setTimeout(() => {
-        block.style.display = "block";
-        block.scrollIntoView({ behavior: "smooth" });
-      }, 600);
+      block.style.display = "block";
+      block.scrollIntoView({ behavior: "smooth" });
     }
   </script>
 
 </body>
 </html>
-
