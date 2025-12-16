@@ -6,62 +6,72 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ---------- GLOBAL ---------- */
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: transparent;   /* 🔥 IMPORTANT */
+      background: transparent;
       margin: 0;
-      padding: 0;                /* 🔥 IMPORTANT */
+      padding: 0;
+      color: #3D2C73;
     }
 
     h2 {
       font-family: 'Poppins', system-ui, sans-serif;
       letter-spacing: -0.02em;
-      margin-top: 0;
+      margin: 0;
+      color: #3D2C73;
     }
 
-    /* ---------- BUTTON ---------- */
-    .btn {
-      background: #0b8ec2;
-      color: #fff;
-      border: none;
-      padding: 14px 28px;
-      font-size: 15px;
+    /* ---------- GENERATE BUTTON (OPTION STYLE) ---------- */
+    .predict-btn {
+      width: 100%;
+      background: #F8DEFF;
+      border: 2px solid #6B277E;
+      color: #3D2C73;
+      padding: 18px 20px;
+      font-size: 16px;
       font-weight: 600;
-      border-radius: 999px;
+      border-radius: 18px;
       cursor: pointer;
+      text-align: left;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .predict-btn:hover {
+      background: #efd2fb;
     }
 
     /* ---------- ANALYSIS BLOCK ---------- */
     .analysis-card {
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 24px;
-      border-left: 4px solid #4caf50;
+      border-left: 5px solid #6B277E;
       display: none;
+      margin-top: 20px;
     }
 
     .analysis-header {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .badge {
-      background: #4caf50;
-      color: #fff;
+      background: #6B277E;
+      color: #ffffff;
       font-size: 11px;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 999px;
       font-weight: 600;
     }
 
     .subtitle {
-      color: #666;
+      color: #6f6a85;
       margin-bottom: 20px;
       font-size: 14px;
     }
@@ -74,24 +84,18 @@
     }
 
     .stat-box {
-      border: 1.5px solid #e6c9f5;
-      border-radius: 14px;
+      border: 2px solid #e6c9f5;
+      border-radius: 18px;
       padding: 18px;
       text-align: center;
     }
 
     .stat-value {
       font-family: 'Poppins', system-ui, sans-serif;
-      font-size: 30px;
+      font-size: 32px;
       font-weight: 700;
       margin-bottom: 2px;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      margin-bottom: 6px;
+      color: #3D2C73;
     }
 
     .stat-range {
@@ -100,13 +104,22 @@
       margin-bottom: 6px;
     }
 
+    .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      color: #3D2C73;
+    }
+
     .pill {
       display: inline-block;
-      padding: 4px 12px;
+      padding: 6px 14px;
       border-radius: 999px;
-      background: #f1f1f1;
+      background: #F8DEFF;
       font-size: 12px;
       font-weight: 600;
+      color: #6B277E;
     }
   </style>
 </head>
@@ -114,7 +127,7 @@
 
   <!-- Trigger -->
   <div style="padding:16px;">
-    <button class="btn" onclick="generatePrediction()">
+    <button class="predict-btn" onclick="generatePrediction()">
       Generate Prediction
     </button>
   </div>
